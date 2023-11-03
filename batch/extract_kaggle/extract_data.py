@@ -23,4 +23,8 @@ if not os.path.exists(file_name):
     # Deletando o arquivo zip após descompactar
     subprocess.run(['rm','-r', file_name, '-d', download_path + '/' + file_name])
 else:
-    pass
+    # Descompactando os arquivos baixados com a opção -o para substituir sem prompt
+    subprocess.run(['unzip', '-o', file_name, '-d', download_path])
+
+    # Deletando o arquivo zip após descompactar
+    subprocess.run(['rm','-r', file_name, '-d', download_path + '/' + file_name])
